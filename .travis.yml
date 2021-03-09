@@ -2,7 +2,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t reactDev/latest develop/
-
+  - docker build -t reactdev/latest ./develop
+  
 script:
   - docker run reactDev/latest
