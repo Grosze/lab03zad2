@@ -5,4 +5,4 @@ before_install:
   - docker build -t reactDev/latest ./develop
 
 script:
-  - docker run reactDev/latest npm run test
+  - docker run reactDev/latest
