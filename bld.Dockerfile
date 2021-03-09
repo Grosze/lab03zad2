@@ -1,7 +1,9 @@
-FROM nginx:latest
-WORKDIR /usr/src/my_node_app
-COPY package.json .
+FROM node:14 as build-stage
+WORKDIR /app
+COPY package.json /app/
 RUN yarn install
-COPY . .
-EXPOSE 3000
-CMD ["yarn", "build"]
+COPY ./ /app/
+RUN npm run build
+
+FROM nginx:latest
+COPY --from=build-stage /app/build/ /usr/share/nginx/html
