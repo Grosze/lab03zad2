@@ -1,4 +1,4 @@
-FROM node:14
+FROM nginx:latest
 WORKDIR /usr/src/my_node_app
 COPY package.json .
 RUN yarn install
