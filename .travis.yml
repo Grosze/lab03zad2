@@ -2,7 +2,9 @@ services:
   - docker
 
 before_install:
-  - docker build -t reactdev/latest .
+  - docker build -t reactdev/latest Dockerfile
+  - docker build -t reactbld/latest Dockerfile.bld
 
 script:
-  - timeout 30 docker run reactdev/latest; exit 0
+  - timeout 30 docker run reactdev/latest
+  - timeout 30 docker run reactbld/latest ; exit 0
